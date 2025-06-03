@@ -27,5 +27,8 @@
   },
   "browserlist": [
     "last 2 version"
-  ]
+  ],
+  "@parcel/resolver-default": {
+    "packageExports": true
+  }
 }
