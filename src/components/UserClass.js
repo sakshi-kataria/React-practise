@@ -2,13 +2,26 @@ import React from 'react'
 class UserClass extends React.Component{
     constructor(props){
         super(props);
+        console.log(props.name,"Child constructor");
+        this.state={githubData:{}}
+    }
+    componentDidMount(){
+        this.timer = setInterval(()=>{console.log("componentDidMount interval");},1000)
+        console.log("Child componentDidMount");
+    }
+    componentDidUpdate(){
+        console.log("componentDidUpdate");
+    }
+    componentWillUnmount(){
+        clearInterval(this.timer);
+        console.log("componentWillUnmount");
     }
     render(){
-        const {name, location, contact} = this.props
-          return <div className="user-card">
-            <h2>Name: {name}</h2>
-            <h3>Location: {location}</h3>
-            <h4>Contact: {contact}</h4>
+        console.log(this.props.name,"Child render");
+        const {name} = this.props;
+        return <div className="user-card">
+            <h2>Name: {this.state.githubData.login}</h2>
+            <img src={this.state.githubData.avatar_url}></img>
         </div>
     }
 }

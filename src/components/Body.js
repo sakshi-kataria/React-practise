@@ -3,13 +3,13 @@ import { useState, useEffect } from 'react';
 import ShimmerUI from './shimmer';
 import { Link } from 'react-router-dom';
 // import resList from '../Utils/mockDATA'
-
+import useOnlineStatus from '../Utils/useOnlineStatus';
 const BodyComponent = ()=>{
     const [listOfRestaurants, setListOfRestaurants] =useState([]);
     const [filteredRestaurants, setFilteredRestaurants] =useState([]);
 
     const [searchText, setSearchText] =useState("");
-
+    const onlineStatus = useOnlineStatus();
     const filterButtonClick = ()=>{
         const filteredRestaurants=listOfRestaurants.filter(res=>res.avgRating>4);
         setFilteredRestaurants(filteredRestaurants);
@@ -32,6 +32,7 @@ const BodyComponent = ()=>{
     useEffect(()=>{
         fetchData()
     },[])
+    if(onlineStatus===false) return <h1>Looks like you are offline ! Please check your internet connection.</h1>
     return listOfRestaurants.length===0 ?<ShimmerUI/> : <div className='body-container'>
             <div className='filter'>
                 <div className='search-container'>
