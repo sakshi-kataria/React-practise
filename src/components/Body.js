@@ -11,7 +11,7 @@ const BodyComponent = ()=>{
     const [searchText, setSearchText] =useState("");
     const onlineStatus = useOnlineStatus();
     const filterButtonClick = ()=>{
-        const filteredRestaurants=listOfRestaurants.filter(res=>res.avgRating>4);
+        const filteredRestaurants=listOfRestaurants.filter(res=>res?.info?.avgRating>4);
         setFilteredRestaurants(filteredRestaurants);
     }
     const onSearchButton = ()=>{
@@ -33,19 +33,19 @@ const BodyComponent = ()=>{
         fetchData()
     },[])
     if(onlineStatus===false) return <h1>Looks like you are offline ! Please check your internet connection.</h1>
-    return listOfRestaurants.length===0 ?<ShimmerUI/> : <div className='body-container'>
-            <div className='filter'>
-                <div className='search-container'>
-                    <input type="text" className='search-input' value={searchText} onChange={onSearchChange}></input>
-                    <button className='search-button' onClick={onSearchButton}>Search</button>
+    return listOfRestaurants.length===0 ?<ShimmerUI/> : <div>
+            <div className='flex m-2.5'>
+                <div className='pr-2.5'>
+                    <input type="text" className='border-solid border-black border-1 mr-5' value={searchText} onChange={onSearchChange}></input>
+                    <button className=' bg-green-200 px-3 rounded-xl' onClick={onSearchButton}>Search</button>
                 </div>
-                <button onClick={filterButtonClick} className='filter-btn'>Top Rated Restaurant</button>
+                <button onClick={filterButtonClick} className=' bg-green-200 cursor-pointer px-3 rounded-xl'>Top Rated Restaurant</button>
             </div>
-            <div className='Restaurant-container'>
+            <div className='flex flex-wrap'>
                 {/* Restaurant Card component*/}
                 {filteredRestaurants.map((restData)=>{
                     const data = restData?.info
-                    return <Link className='restaurant-link' to={"/restaurant/"+ data.id} key={data.id}>
+                    return <Link to={"/restaurant/"+ data.id} key={data.id}>
                         <RestaurantCard  restData={data}/></Link>
                     })}
             </div>

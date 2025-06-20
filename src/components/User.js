@@ -15,7 +15,7 @@ const UserComponent =(props)=>{
             setCount2(count2+2)
         }
     }
-    return <div className="user-card">
+    return <div className="m-2.5 p-2.5 border-b-gray-400 border-1">
         <h1>Count: {count}</h1>
         <h1>Count: {count2}</h1>
         <button onClick={onButtonClick}>Click ME</button>
@@ -24,3 +24,4 @@ const UserComponent =(props)=>{
 
 }
 export default UserComponent;
+

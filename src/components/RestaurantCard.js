@@ -7,9 +7,9 @@ const RestaurantCard = ({restData})=> {
     return(
         <>
             {/* Style can be given using a javascript object. */}
-            <div className='restaurant-card' style={StyleCard}>
+            <div className='w-[200px] m-2.5 p-2.5 h-80 hover:cursor-pointer hover:border hover:border-solid' style={StyleCard}>
                 <img
-                    className='restaurant-logo' 
+                    className='w-[200px] h-32' 
                     src={"https://media-assets.swiggy.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,w_660/" + cloudinaryImageId}
                 />
                 <h3>{name}</h3>
