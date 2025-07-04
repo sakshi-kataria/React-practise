@@ -4,10 +4,10 @@ const UserComponent =(props)=>{
     const [count2, setCount2]= useState(2);
 
     useEffect(()=>{
-        console.log('Count 1 is updated', count);
+        // console.log('Count 1 is updated', count);
     },[count])
     useEffect(()=>{
-        console.log('Count 2 is updated', count2);
+        // console.log('Count 2 is updated', count2);
     },[count2])
     const onButtonClick=()=>{
         setCount(count+1);

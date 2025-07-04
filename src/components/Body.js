@@ -1,16 +1,16 @@
 import RestaurantCard,{withDiscountInfo} from './RestaurantCard'
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useContext } from 'react';
 import ShimmerUI from './shimmer';
 import { Link } from 'react-router-dom';
-// import resList from '../Utils/mockDATA'
 import useOnlineStatus from '../Utils/useOnlineStatus';
 import isEmpty from 'lodash/isEmpty';
+import UserContext from '../Utils/userContext';
 
 const BodyComponent = ()=>{
     const [listOfRestaurants, setListOfRestaurants] =useState([]);
     const [filteredRestaurants, setFilteredRestaurants] =useState([]);
-    const RestaurantCardWithDiscountInfo = withDiscountInfo()
     const [searchText, setSearchText] =useState("");
+    const {loggedInUser,setUserName}=useContext(UserContext)
     const onlineStatus = useOnlineStatus();
     const RestaurantCardDiscounted = withDiscountInfo(RestaurantCard);
     const filterButtonClick = ()=>{
@@ -37,14 +37,17 @@ const BodyComponent = ()=>{
     },[])
     if(onlineStatus===false) return <h1>Looks like you are offline ! Please check your internet connection.</h1>
     return listOfRestaurants?.length===0 ?<ShimmerUI/> : <div>
-            <div className='flex m-2.5'>
-                <div className='pr-2.5'>
-                    <input type="text" className='border-solid border-black border-1 mr-5' value={searchText} onChange={onSearchChange}></input>
+            <div className='flex m-2.5 pl-20 gap-3'>
+                <div className=''>
+                    <input type="text" className='border-solid border-black border-1' 
+                    value={searchText} onChange={onSearchChange}></input>
                     <button className=' bg-green-200 px-3 rounded-xl' onClick={onSearchButton}>Search</button>
                 </div>
                 <button onClick={filterButtonClick} className=' bg-green-200 cursor-pointer px-3 rounded-xl'>Top Rated Restaurant</button>
+                Username: <input className='border-solid border-black border-1' 
+                value={loggedInUser} onChange={(e)=>setUserName(e.target.value)}></input>
             </div>
-            <div className='flex flex-wrap'>
+            <div className='flex flex-wrap mb-20 mt-5 justify-center'>
                 {/* Restaurant Card component*/}
                 {filteredRestaurants?.map((restData)=>{
                     const data = restData?.info

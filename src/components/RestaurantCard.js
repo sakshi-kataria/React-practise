@@ -1,21 +1,26 @@
+import { useContext } from "react";
+import UserContext from "../Utils/userContext";
+
  {/* Style can be given using a javascript object. */}
 const StyleCard = {
     backgroundColor:"#f0f0f0",
 }
 const RestaurantCard = ({restData})=> {   
+    const {loggedInUser}= useContext(UserContext)
     const {name, cuisines,avgRating, costForTwo, cloudinaryImageId}= restData || {};
     return(
         <>
             {/* Style can be given using a javascript object. */}
-            <div className='w-[200px] m-2.5 p-2.5 h-[350px] hover:cursor-pointer hover:border hover:border-solid' style={StyleCard}>
+            <div className=' w-[200px] m-2.5 p-2.5 h-[380px] rounded-4xl hover:cursor-pointer' style={StyleCard}>
                 <img
-                    className='w-[200px] h-32' 
+                    className='w-[200px] h-32 rounded-4xl' 
                     src={"https://media-assets.swiggy.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,w_660/" + cloudinaryImageId}
                 />
                 <h3>{name}</h3>
                 {cuisines?.join(", ")}
                 <h4>{avgRating}</h4>
                 {costForTwo}
+                <div className="gap-1">user:{loggedInUser}</div>
             </div>
         </>
 )};
@@ -25,7 +30,7 @@ const RestaurantCard = ({restData})=> {
 export const withDiscountInfo = (RestaurantCard) => {
     return (props)=>{
         return (<div>
-            <label className=" absolute bg-black text-white m-1 p-1 rounded-l-lg ">Discounted</label>
+            <label className="absolute bg-black text-white py-1 m-2 px-2 rounded-4xl text-xs">Discounted</label>
             <RestaurantCard {...props}/>
         </div>)
     }
