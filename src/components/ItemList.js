@@ -1,9 +1,16 @@
 import { useContext } from "react";
 import UserContext from "../Utils/userContext";
 
+import { useDispatch } from "react-redux";
+import { addItem } from "../Utils/cartSlice";
 const ItemList = (props)=>{
     const {itemCards} = props
-     const {loggedInUser} = useContext(UserContext);
+    const {loggedInUser} = useContext(UserContext)
+    const dispatch =useDispatch();
+    const onAddButtonClick =(card)=>{
+        // dispatch an action and return object {payload:"DOSA"}
+        dispatch(addItem(card))
+    }
   {/* Accordion body */}
     return <div> 
         {itemCards?.map(card => {
@@ -18,7 +25,12 @@ const ItemList = (props)=>{
                 {rating && <div className="text-sm text-green-600 mt-1">⭐ {rating}</div>}
                 <div className="text-sm text-gray-500">user: {loggedInUser} </div>
             </div>
-            {imageId && <img src={img} alt={name} className="w-24 h-24 rounded-lg" />}
+            <div>
+                <button className="absolute bg-black text-white mx-8 p-2 rounded-4xl text-xs"
+                onClick={()=>onAddButtonClick(card)}>Add +</button>
+                {imageId && <img src={img} alt={name} className="w-24 h-24 rounded-lg" />}
+            </div>
+            
             </li>
         );
         })}
