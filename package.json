@@ -3,7 +3,8 @@
   "version": "1.0.0",
   "description": "This is React learning by Sakshi kataria",
   "scripts": {
-    "test": "jest",
+    "test": "jest --no-cache",
+    "watch-test":"jest --watch",
     "start": "parcel index.html",
     "build": "parcel build index.html"
   },
@@ -18,23 +19,30 @@
   },
   "homepage": "https://github.com/sakshi-kataria/React-practise#readme",
   "devDependencies": {
+    "@babel/core": "^7.28.0",
+    "@babel/preset-env": "^7.28.0",
+    "@testing-library/react": "^16.3.0",
     "autoprefixer": "^10.4.21",
+    "babel-jest": "^30.0.4",
+    "jest": "^30.0.4",
+    "jest-environment-jsdom": "^30.0.4",
     "parcel": "^2.15.2",
     "postcss": "^8.5.6",
     "tailwindcss": "^4.1.10"
   },
   "dependencies": {
+    "@babel/preset-react": "^7.27.1",
     "@reduxjs/toolkit": "^2.8.2",
     "@tailwindcss/postcss": "^4.1.10",
+    "@testing-library/jest-dom": "^6.6.3",
+    "browserslist": "^4.25.1",
     "lodash": "^4.17.21",
     "react": "^19.1.0",
     "react-dom": "^19.1.0",
     "react-redux": "^9.2.0",
     "react-router-dom": "^7.6.0"
   },
-  "browserlist": [
-    "last 2 version"
-  ],
+  "browserlist": [],
   "@parcel/resolver-default": {
     "packageExports": true
   }

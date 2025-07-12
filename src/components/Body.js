@@ -14,7 +14,7 @@ const BodyComponent = ()=>{
     const onlineStatus = useOnlineStatus();
     const RestaurantCardDiscounted = withDiscountInfo(RestaurantCard);
     const filterButtonClick = ()=>{
-        const filteredRestaurants=listOfRestaurants.filter(res=>res?.info?.avgRating>4);
+        const filteredRestaurants=listOfRestaurants.filter(res=>{ const avgRating = res?.info?.avgRating; return !isNaN(avgRating) && avgRating >= 4.4});
         setFilteredRestaurants(filteredRestaurants);
     }
     const onSearchButton = ()=>{
@@ -39,7 +39,7 @@ const BodyComponent = ()=>{
     return listOfRestaurants?.length===0 ?<ShimmerUI/> : <div>
             <div className='flex m-2.5 pl-20 gap-3'>
                 <div className=''>
-                    <input type="text" className='border-solid border-black border-1' 
+                    <input type="text" className='border-solid border-black border-1' data-testid="searchInput"
                     value={searchText} onChange={onSearchChange}></input>
                     <button className=' bg-green-200 px-3 rounded-xl' onClick={onSearchButton}>Search</button>
                 </div>

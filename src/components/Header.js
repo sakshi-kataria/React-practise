@@ -38,15 +38,3 @@ export const HeaderComponent =()=>{
 }
 
 export default HeaderComponent;
-
-
-//
-// const onLogInButton =(e)=>{
-//     if(e.target.value==="log in"){
-//         setButtonName("log out")
-//     }else{
-//         setButtonName("log in")
-
-//     }
-
-// }

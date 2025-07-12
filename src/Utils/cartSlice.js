@@ -1,4 +1,4 @@
-import { createSlice } from "@reduxjs/toolkit";
+import { createSlice, current } from "@reduxjs/toolkit";
 
 // slice
 const cartSlice = createSlice({
@@ -14,8 +14,11 @@ const cartSlice = createSlice({
         removeItem:(state)=>{
             state.ItemList.pop();
         },
+        // original state =["pizza"]
         clearCart:(state)=>{
+            // This does not modify the original state. original state =["pizza"] is different than state =[]
             state.ItemList.length =0;
+            //state =[];
         }
     }
 });

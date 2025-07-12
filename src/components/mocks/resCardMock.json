@@ -1,0 +1,74 @@
+{
+    "id": "72821",
+    "name": "Burger King",
+    "cloudinaryImageId": "RX_THUMBNAIL/IMAGES/VENDOR/2025/6/18/1f9d675e-7e2e-4a7a-a494-6bdf23af4853_72821.jpg",
+    "locality": "Dodda Kannali",
+    "areaName": "Kaikondrahalli",
+    "costForTwo": "₹350 for two",
+    "cuisines": [
+        "Burgers",
+        "American"
+    ],
+    "avgRating": 4.2,
+    "parentId": "166",
+    "avgRatingString": "4.2",
+    "totalRatingsString": "52K+",
+    "sla": {
+        "deliveryTime": 16,
+        "lastMileTravel": 0.9,
+        "serviceability": "SERVICEABLE",
+        "slaString": "15-20 mins",
+        "lastMileTravelString": "0.9 km",
+        "iconType": "ICON_TYPE_EMPTY"
+    },
+    "availability": {
+        "nextCloseTime": "2025-07-13 06:00:00",
+        "opened": true
+    },
+    "badges": {
+        "imageBadges": [
+            {
+                "imageId": "android/static-assets/icons/big_rx.png",
+                "description": "bolt!"
+            }
+        ]
+    },
+    "isOpen": true,
+    "type": "F",
+    "badgesV2": {
+        "entityBadges": {
+            "imageBased": {
+                "badgeObject": [
+                    {
+                        "attributes": {
+                            "description": "bolt!",
+                            "imageId": "android/static-assets/icons/big_rx.png"
+                        }
+                    }
+                ]
+            },
+            "textBased": {},
+            "textExtendedBadges": {}
+        }
+    },
+    "aggregatedDiscountInfoV3": {
+        "header": "ITEMS",
+        "subHeader": "AT ₹59"
+    },
+    "differentiatedUi": {
+        "displayType": "ADS_UI_DISPLAY_TYPE_ENUM_DEFAULT",
+        "differentiatedUiMediaDetails": {
+            "lottie": {},
+            "video": {}
+        }
+    },
+    "reviewsSummary": {},
+    "displayType": "RESTAURANT_DISPLAY_TYPE_DEFAULT",
+    "restaurantOfferPresentationInfo": {},
+    "externalRatings": {
+        "aggregatedRating": {
+            "rating": "--"
+        }
+    },
+    "ratingsDisplayPreference": "RATINGS_DISPLAY_PREFERENCE_SHOW_SWIGGY"
+}
